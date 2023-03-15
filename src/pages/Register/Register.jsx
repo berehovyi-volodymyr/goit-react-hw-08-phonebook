@@ -29,41 +29,48 @@ const Register = () => {
   }
   return (
     <>
-      <h2>Register</h2>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <label>
-          <span>User name</span>
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          <span>Email</span>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            required
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          <span>Password</span>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            required
-            onChange={handleChange}
-          />
-        </label>
+      <div className={styles.conteiner}>
+        <h2>Register</h2>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <label>
+            <span className={styles.title}>User name</span>
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={handleChange}
+              required
+              className={styles.input}
+            />
+          </label>
+          <label>
+            <span className={styles.title}>Email</span>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              required
+              onChange={handleChange}
+              className={styles.input2}
+            />
+          </label>
+          <label>
+            <span className={styles.title}>Password</span>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              required
+              onChange={handleChange}
+              className={styles.input3}
+            />
+          </label>
 
-        <button type="submit">Register</button>
-      </form>
+          <button type="submit" className={styles.button}>
+            Register
+          </button>
+        </form>
+      </div>
     </>
   );
 };

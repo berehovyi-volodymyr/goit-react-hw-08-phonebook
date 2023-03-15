@@ -24,7 +24,7 @@ const ContactList = () => {
       {isLoading ? (
         <h2>...Loading</h2>
       ) : (
-        items.map(({ id, name, phone }) => (
+        items.map(({ id, name, number: phone }) => (
           <li key={id} className={styles.listItems}>
             <p className={styles.name}>{name}</p>
             <p className={styles.phone}>{phone}</p>

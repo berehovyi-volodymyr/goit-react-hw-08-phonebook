@@ -1,5 +1,7 @@
 .list {
   list-style: none;
+  background-color: aliceblue;
+  margin-top: 30px;
 }
 
 .listItems {

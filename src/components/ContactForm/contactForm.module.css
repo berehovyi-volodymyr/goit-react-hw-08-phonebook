@@ -7,13 +7,16 @@
 }
 
 .form {
+  background-color: aliceblue;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 10px;
   margin-left: 20px;
   outline: 3px blue solid;
   padding: 10px 15px;
   width: 500px;
+  margin: 20px auto;
 }
 
 .button {
@@ -28,7 +31,7 @@
 }
 
 .button:hover {
-  background-color: aqua;
+  background-color: orange;
 }
 
 .input {

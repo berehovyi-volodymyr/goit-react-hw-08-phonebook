@@ -5,7 +5,7 @@ const NavbarAuth = () => {
   return (
     <div className={styles.header}>
       <h1 className={styles.title}>Phonebook</h1>
-      <div>
+      <div className={styles.navbar}>
         <NavLink className={styles.link} to="/register">
           Register
         </NavLink>

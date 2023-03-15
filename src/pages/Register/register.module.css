@@ -1,6 +1,45 @@
 .form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.input {
+  margin-left: 10px;
+  width: 200px;
+  padding: 5px 10px;
+}
+
+.input2 {
+  margin-left: 50px;
+  width: 200px;
+  padding: 5px 10px;
+}
+
+.input3 {
+  margin-left: 22px;
+  width: 200px;
+  padding: 5px 10px;
+}
+
+.conteiner {
+  background-color: aliceblue;
   width: 500px;
+  border-radius: 5px;
+  padding: 10px 0px;
+  margin: 0 auto;
+}
+
+.button {
+  padding: 10px 25px;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: orange;
 }
