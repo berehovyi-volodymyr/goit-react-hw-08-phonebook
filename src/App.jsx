@@ -1,24 +1,30 @@
-import NavbarAuth from './components/NavbarAuth/NavbarAuth';
-import Register from './pages/Register/Register';
+import { Layout } from './components/Layout/Layout';
+import { PublicRoute } from './components/PublicRoute/PublicRoute';
+import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
 import { Routes, Route } from 'react-router-dom';
-import ContactsPage from './pages/ContactsPage/ContactsPage';
-import UserMenu from './components/UserMenu/UserMenu';
-import { useSelector } from 'react-redux';
-import { isUserLogin } from './redux/auth/auth-selectors';
-import LoginPage from './pages/LoginPage/LoginPage';
+import { lazy, Suspense } from 'react';
+
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
+const Register = lazy(() => import('./pages/Register/Register'));
+const ContactsPage = lazy(() => import('./pages/ContactsPage/ContactsPage'));
 
 export const App = () => {
-  const isLogin = useSelector(isUserLogin);
   return (
-    <>
-      {!isLogin && <NavbarAuth />}
-      {isLogin && <UserMenu />}
-
+    <Suspense fallback={<p>...Loading</p>}>
       <Routes>
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route element={<PublicRoute />}>
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<LoginPage />} />
+          </Route>
+          <Route element={<PrivateRoute />}>
+            <Route path="/contacts" element={<ContactsPage />} />
+          </Route>
+          <Route path="*" element={<HomePage />} />
+        </Route>
       </Routes>
-      <ContactsPage />
-    </>
+    </Suspense>
   );
 };

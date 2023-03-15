@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
 import * as api from '../../api/auth';
 
 export const signup = createAsyncThunk(
@@ -23,5 +22,38 @@ export const login = createAsyncThunk(
     } catch ({ response }) {
       return rejectWithValue(response);
     }
+  }
+);
+
+export const logout = createAsyncThunk(
+  'auth/logout',
+  async (_, { rejectWithValue }) => {
+    try {
+      const data = await api.logout();
+      return data;
+    } catch ({ response }) {
+      return rejectWithValue(response);
+    }
+  }
+);
+
+export const getCurrent = createAsyncThunk(
+  'auth/current',
+  async (_, { rejectWithValue, getState }) => {
+    try {
+      const { auth } = getState();
+      const current = api.getCurrent(auth.token);
+      return current;
+    } catch ({ response }) {
+      return rejectWithValue(response);
+    }
+  },
+  {
+    condition: (_, { getState }) => {
+      const { auth } = getState();
+      if (!auth.token) {
+        return false;
+      }
+    },
   }
 );
