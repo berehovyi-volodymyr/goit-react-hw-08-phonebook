@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/638.c6e3becd.chunk.css","mappings":"AAAA,sBACE,YAAa,CACb,qBAAsB,CACtB,QAAS,CACT,WACF","sources":["pages/Register/register.module.css"],"sourcesContent":[".form {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  width: 500px;\n}\n"],"names":[],"sourceRoot":""}
