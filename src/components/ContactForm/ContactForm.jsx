@@ -8,8 +8,6 @@ import { addContact } from '../../redux/contacts/contacts-operation';
 const ContactForm = () => {
   const [state, setState] = useState({ ...initialState });
   const { name, phone } = state;
-  // const [addContact] = useAddContactMutation();
-  // const { data } = useGetContactsQuery();
 
   const dispatch = useDispatch();
   const contacts = useSelector(store => store.contacts.items);
@@ -29,16 +27,8 @@ const ContactForm = () => {
       return;
     }
 
-    const action = addContact({ name, phone });
+    const action = addContact({ name, number: phone });
     dispatch(action);
-    // const checkContact = data.find(
-    //   contact => contact.name.toLowerCase() === name.toLowerCase()
-    // );
-
-    // if (checkContact) {
-    //   return alert(`${name} is already in contacts`);
-    // }
-    // addContact({ name, phone });
     setState({ ...initialState });
   };
 
